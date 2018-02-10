@@ -1,0 +1,7 @@
+<form>
+	<input type="text" name="username" minlength="5" pattern="[A-Z]+" ngModel #username="ngModel" (change)="check(username)">
+	<DIV *ngIf="username.errors">
+		<DIV *ngIf="username.errors.minlength">please enter atleat 5 characters</DIV>
+		<div *ngIf="username.errors.pattern">Please enter in the required pattern</div>
+	</DIV>
+</form>

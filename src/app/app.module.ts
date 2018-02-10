@@ -4,18 +4,18 @@ import { FormsModule }   from '@angular/forms'
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes:Routes = [
-{
-	path: 'subjects', component: SubjectsComponent,
-	children:[		
-		{path: 'subjectDetails/:praveen', component: SubjectDetailsComponent},
-		{path: 'subjectDetails', component: SubjectDetailsComponent}		
-	]
-},
-{path: 'courses', component: CoursesComponent},
-{path: 'home', component: HomeComponent,
-	children:[{path: 'courses', component: CoursesComponent},{path: 'fourth', component: FourthComponent}]
-},
-{path: '**', component: DefaultComponent, pathMatch:"full"}
+// {
+	// path: 'subjects', component: SubjectsComponent,
+	// children:[		
+		// {path: 'subjectDetails/:praveen', component: SubjectDetailsComponent},
+		// {path: 'subjectDetails', component: SubjectDetailsComponent}		
+	// ]
+// },
+//{path: 'courses', component: CoursesComponent},
+//{path: 'home', component: HomeComponent,
+//	children:[{path: 'courses', component: CoursesComponent},{path: 'fourth', component: FourthComponent}]
+//},
+//{path: '**', component: DefaultComponent, pathMatch:"full"}
 ];
 
 import { FirstComponent } from './first/first.component';
@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ArthService } from './arth.service';
 import { AbcService } from './abc.service';
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
 @NgModule({
   declarations: [
     FirstComponent,
@@ -46,13 +47,14 @@ import { AbcService } from './abc.service';
     FifthComponent,
     SubjectsComponent,
     SubjectDetailsComponent,
-    EigthComponent
+    EigthComponent,
+    TemplateFormsComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,
 	RouterModule.forRoot(appRoutes)
   ],
   providers: [DataService,ArthService,AbcService],
-  bootstrap: [EigthComponent]
+  bootstrap: [TemplateFormsComponent]
 })
 export class AppModule { }
