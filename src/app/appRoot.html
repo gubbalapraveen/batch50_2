@@ -1,0 +1,18 @@
+<div>
+	<h1>{{title}}</h1>
+	<input type="text" #task>
+	<input type="text" #person>
+	<button (click)="something(task.value,person.value)">Add</button>
+	<ul>
+		<li *ngFor="let i of tasks;let j = index">
+			{{j+1}}-{{i.person}}
+			<button (click)="details(j)">show</button>
+			<button (click)="done(j)">DONE</button>
+		</li>
+	</ul>
+	<div *ngIf="selected">
+		<h1>{{selected.task}}</h1>
+		<h2>{{selected.person}}</h2>
+	</div>
+	
+</div>	
