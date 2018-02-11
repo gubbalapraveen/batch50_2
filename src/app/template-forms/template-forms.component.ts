@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-template-forms',
@@ -13,5 +14,26 @@ export class TemplateFormsComponent implements OnInit {
   }
 	check(x){
 		console.log("Hello Forms",x)
+	}
+	
+	address= new FormGroup({
+		city : new FormControl("",
+								[
+									Validators.minLength(4),
+									Validators.maxLength(8),
+									Validators.required
+								]
+							),
+		pincode : new FormControl("",
+								[
+									Validators.minLength(4),
+									Validators.maxLength(8),
+									Validators.required
+								]
+							)
+	});
+	
+	logit(){
+		console.log(this.address);
 	}
 }

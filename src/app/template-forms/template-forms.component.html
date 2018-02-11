@@ -1,7 +1,64 @@
-<form>
-	<input type="text" name="username" minlength="5" pattern="[A-Z]+" ngModel #username="ngModel" (change)="check(username)">
+<form [formGroup]="address">
+	
+	city: <input type="text" formControlName="city" (change)="logit()">
+	<br>
+	<div *ngIf="address.controls.city.errors">
+		<h3 *ngIf="address.controls.city.errors.minlength">String Should have minimum of 4 characters</h3>
+		<h3 *ngIf="address.controls.city.errors.maxlength">String Should have maximum of 8 characters</h3>
+		<h3 *ngIf="address.controls.city.errors.required && address.controls.city.touched">City is a Mandetory field</h3>
+	</div>
+	
+	pincode: <input type="text" formControlName="pincode" (change)="logit()">
+	<br>
+	<div *ngIf="address.controls.pincode.errors">
+		<h3 *ngIf="address.controls.pincode.errors.minlength">pincode Should have minimum of 4 characters</h3>
+		<h3 *ngIf="address.controls.pincode.errors.maxlength">pincode Should have maximum of 8 characters</h3>
+		<h3 *ngIf="address.controls.pincode.errors.required && address.controls.pincode.touched">Pincode is a Mandetory field</h3>
+	</div>
+	<button [disabled]="address.status!='VALID'">Go</button>
+	<!-- <button [disabled]="address.controls.pincode.status!='VALID' || address.controls.city.status!='VALID' ">Go</button> -->
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Full Name: <input type="text" name="username" minlength="5" pattern="[A-Z]+" ngModel #username="ngModel" (change)="check(username)">
 	<DIV *ngIf="username.errors">
 		<DIV *ngIf="username.errors.minlength">please enter atleat 5 characters</DIV>
 		<div *ngIf="username.errors.pattern">Please enter in the required pattern</div>
 	</DIV>
-</form>
+	<hr> -->
+	
+	<!--<div *ngIf="pincode.errors">
+		<h3 *ngIf="pincode.errors.minlength">pincode Should have minimum of 4 characters</h3>
+		<h3 *ngIf="pincode.errors.maxlength">pincode Should have maximum of 8 characters</h3>
+		<h3 *ngIf="pincode.errors.required && pincode.touched">Pincode is a Mandetory field</h3>
+	</div>
+	<button [disabled]="pincode.status!='VALID' || city.status!='VALID' ">Go</button>
+	<div *ngIf="city.errors">
+		<h3 *ngIf="city.errors.minlength">String Should have minimum of 4 characters</h3>
+		<h3 *ngIf="city.errors.maxlength">String Should have maximum of 8 characters</h3>
+		<h3 *ngIf="city.errors.required && city.touched">City is a Mandetory field</h3>
+	</div> -->

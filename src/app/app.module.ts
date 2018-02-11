@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'
-import {RouterModule, Routes} from '@angular/router';
-
+import { RouterModule, Routes} from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes:Routes = [
 // {
 	// path: 'subjects', component: SubjectsComponent,
@@ -52,7 +52,7 @@ import { TemplateFormsComponent } from './template-forms/template-forms.componen
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,
-	RouterModule.forRoot(appRoutes)
+	RouterModule.forRoot(appRoutes), ReactiveFormsModule
   ],
   providers: [DataService,ArthService,AbcService],
   bootstrap: [TemplateFormsComponent]
